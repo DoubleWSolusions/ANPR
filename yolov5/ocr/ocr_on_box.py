@@ -5,9 +5,10 @@ import imutils
 import easyocr
 import torch
 
-from yolov5.utils.general import xyxy2xywh, clip_coords
-from geometry_utils import explode_xy, shoelace_area
-from ocr_preprocessing import OCRPreprocessor
+
+from utils.general import xywh2xyxy, xyxy2xywh, clip_coords
+from ocr.geometry_utils import explode_xy, shoelace_area
+from ocr.ocr_preprocessing import OCRPreprocessor
 
 
 class OCR:

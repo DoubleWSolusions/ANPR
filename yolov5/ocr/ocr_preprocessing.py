@@ -1,5 +1,7 @@
 import cv2
+import numpy as np
 from scipy.ndimage import interpolation as inter
+
 
 
 class OCRPreprocessor:
