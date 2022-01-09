@@ -3,7 +3,6 @@ import numpy as np
 from scipy.ndimage import interpolation as inter
 
 
-
 class OCRPreprocessor:
 
     def __init__(self):
@@ -75,7 +74,7 @@ class OCRPreprocessor:
             best_score = max(scores)
 
         best_angle = angles[scores.index(best_score)]
-        print('Best angle: {}'.format(best_angle))  # correct skew
+        print('Best angle: {}'.format(best_angle))
         image = inter.rotate(image, best_angle, reshape=False, order=0)
 
         return image

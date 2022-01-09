@@ -8,10 +8,10 @@ import torch
 import torch.backends.cudnn as cudnn
 
 FILE = Path(__file__).resolve()
-ROOT = FILE.parents[0]  # YOLOv5 root directory
+ROOT = FILE.parents[0]
 if str(ROOT) not in sys.path:
-    sys.path.append(str(ROOT))  # add ROOT to PATH
-ROOT = Path(os.path.relpath(ROOT, Path.cwd()))  # relative
+    sys.path.append(str(ROOT))
+ROOT = Path(os.path.relpath(ROOT, Path.cwd()))
 
 from models.common import DetectMultiBackend
 from utils.datasets import IMG_FORMATS, VID_FORMATS, LoadImages, LoadStreams
@@ -149,6 +149,7 @@ def run(weights=ROOT / 'yolov5s.pt',  # model.pt path(s)
                     box_img = ocr.get_box_img(xyxy, imc, BGR=True)
                     box_img = ocr.preprocessor.to_rgb(box_img)
                     box_img = ocr.preprocessor.rotate_img(box_img)
+                    box_img = ocr.preprocessor.get_denoised_image(box_img)
 
                     box_label = ocr.run_easy_ocr(box_img)
 

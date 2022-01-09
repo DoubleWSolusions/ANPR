@@ -33,8 +33,9 @@ class OCR:
             xy_e = explode_xy(xy)
             area = shoelace_area(xy_e[0], xy_e[1])
             summary[i[1]] = area
-
-        return max(summary, key=summary.get)
+        if summary:
+            return max(summary, key=summary.get)
+        return ":("
 
     def run_easy_ocr(self, box):
         extractedInformation = self.easyocr_reader.readtext(box, detail=1)
