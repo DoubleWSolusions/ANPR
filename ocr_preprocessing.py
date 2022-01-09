@@ -68,7 +68,7 @@ class OCRPreprocessor:
         scores = []
 
         for angle in angles:
-            hist, score = find_score(binary_image, angle)
+            hist, score = self.find_score_for_rotation(binary_image, angle)
             scores.append(score)
             best_score = max(scores)
 
